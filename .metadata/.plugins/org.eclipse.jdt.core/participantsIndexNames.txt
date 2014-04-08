@@ -1,0 +1,7 @@
+INDEX VERSION 1.126
+C:\JCF\JCF-IDE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1152776232.index
+\jcf-showcase\src
+C:\JCF\JCF-IDE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3108460517.index
+\jcf-showcase\src
+C:\JCF\JCF-IDE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1198182591.index
+\jcf-showcase\src

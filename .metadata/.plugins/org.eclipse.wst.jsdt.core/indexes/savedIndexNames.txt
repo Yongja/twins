@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+C:\JCF\JCF-IDE\workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1801734252.index
+762407239.index
+1238040098.index
+373722352.index
+2464538960.index
+3414668044.index

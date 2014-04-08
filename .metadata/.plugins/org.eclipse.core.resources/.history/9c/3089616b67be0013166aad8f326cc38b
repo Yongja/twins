@@ -1,0 +1,21 @@
+package com.batch.service;
+
+import org.quartz.*;
+import org.springframework.scheduling.quartz.QuartzJobBean;
+
+public class SystemOutTestService extends QuartzJobBean {
+
+	
+	@Override
+	protected void executeInternal(JobExecutionContext arg0) throws JobExecutionException{
+		
+		try{
+			System.out.println("음, 배치가 실행되었구먼!")
+		}catch(Exception e){
+		  
+			e.printStackTrace();
+				
+		}
+		}
+	
+}

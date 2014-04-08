@@ -1,0 +1,8 @@
+contextsDir=C\:\\JCF\\JCF-IDE\\was\\tomcat\\apache-tomcat-7.0.41\\conf\\Catalina\\localhost
+eclipse.preferences.version=1
+fixTomcatHomeBug=fixed
+managerUrl=http\://localhost\:8080/manager
+tomcatConfigFile=C\:\\JCF\\JCF-IDE\\was\\tomcat\\apache-tomcat-7.0.41\\conf\\server.xml
+tomcatDir=C\:\\JCF\\JCF-IDE\\was\\tomcat\\apache-tomcat-7.0.41
+tomcatJRE=1372832065128
+tomcatVersion=tomcatV7

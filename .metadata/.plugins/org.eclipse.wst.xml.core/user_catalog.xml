@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri name="http://www.daewoobrenic.co.kr/schema/jcfiam" uri="file:///C:/JCF/JCF-IDE/JCF-XSD/jcf-iam-1.0.xsd"/>
+  <system systemId="http://www.daewoobrenic.co.kr/schema/jcfiam/jcf-iam-1.0.xsd" uri="file:///C:/JCF/JCF-IDE/JCF-XSD/jcf-iam-1.0.xsd"/>
+  <uri name="http://www.daewoobrenic.co.kr/schema/jcfquery" uri="file:///C:/JCF/JCF-IDE/JCF-XSD/jcf-query-1.0.xsd"/>
+  <system systemId="http://www.daewoobrenic.co.kr/schema/jcfquery/jcf-query-1.0.xsd" uri="file:///C:/JCF/JCF-IDE/JCF-XSD/jcf-query-1.0.xsd"/>
+  <uri name="http://www.daewoobrenic.co.kr/schema/jcfsua" uri="file:///C:/JCF/JCF-IDE/JCF-XSD/jcf-sua-1.0.xsd"/>
+  <system systemId="http://www.daewoobrenic.co.kr/schema/jcfsua/jcf-sua-1.0.xsd" uri="file:///C:/JCF/JCF-IDE/JCF-XSD/jcf-sua-1.0.xsd"/>
+</catalog>

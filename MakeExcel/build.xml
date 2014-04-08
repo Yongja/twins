@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="MakeExcel">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="MakeExcel.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/commons-dbcp-1.4.jar"/>
+        <pathelement location="lib/commons-pool-1.5.5.jar"/>
+        <pathelement location="lib/ibatis-2.3.4.726.jar"/>
+        <pathelement location="lib/jconn4.jar"/>
+        <pathelement location="lib/log4j-1.2.8.jar"/>
+        <pathelement location="lib/ojdbc14.jar"/>
+        <pathelement location="lib/jxl.jar"/>
+        <pathelement location="lib/dom4j-1.6.1.jar"/>
+        <pathelement location="lib/geronimo-stax-api_1.0_spec-1.0.jar"/>
+        <pathelement location="lib/ooxml-schemas-1.0.jar"/>
+        <pathelement location="lib/poi-3.5-FINAL-20090928.jar"/>
+        <pathelement location="lib/poi-contrib-3.5-FINAL-20090928.jar"/>
+        <pathelement location="lib/poi-ooxml-3.5-FINAL-20090928.jar"/>
+        <pathelement location="lib/poi-scratchpad-3.5-FINAL-20090928.jar"/>
+        <pathelement location="lib/xmlbeans-2.3.0.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="MakeExcel.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="XlsxMake001">
+        <java classname="com.dw.makeExcel.XlsxMake001" failonerror="true" fork="yes">
+            <jvmarg line="-Xms256m -Xmx1024m"/>
+            <classpath refid="MakeExcel.classpath"/>
+        </java>
+    </target>
+</project>

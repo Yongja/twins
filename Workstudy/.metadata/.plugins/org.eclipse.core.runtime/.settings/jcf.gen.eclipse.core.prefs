@@ -1,0 +1,8 @@
+DB_CATEGORY_RADIO=MYSQL
+DB_DRIVER_CLASS=com.mysql.jdbc.Driver
+DB_PASSWORD=twins
+DB_URL=jdbc\:mysql\://localhost\:3306/spring
+DB_USERNAME=twins
+SOURCE_DIRECTORY=C\:\\Users\\yhpark01
+TEMPLATE_DIRECTORY=E\:\\03 Project\\08. \uC608\uAE08\uBCF4\uD5D8\uACF5\uC0AC\\\uD504\uB85C\uC81D\uD2B8\\JCF\\sourceGen\\sourceGenTemplate
+eclipse.preferences.version=1
