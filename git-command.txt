@@ -2,3 +2,50 @@ git config --list
 
 git config --global user.name "Richard Park"
 git config --global user.email "twinspark81@gmail.com"
+
+
+
+
+
+원격저장소에 파일이 존재할 때 Merge하기
+
+> git pull origin master
+
+원격저장소(master브랜치=>origin) 올리기
+> git push -u origin master
+
+
+
+현재 Git 저장소의 origin을 삭제 
+>git remote rm origin
+
+remote의 origin을 추가 
+>git remote add origin https://github.com/Yongja/twins
+
+이제 저장소를 올리자. 
+>git push -u origin master
+
+리모트 저장소 확인하기
+> git remote -v
+
+Clone이후 수정된 내용 가져오기
+> git fetch [remote-name]
+
+
+
+git init
+git add git-command.txt
+git commit -m "First commit"
+git remote add origin https://github.com/Yongja/twins
+git push -u origin master
+
+
+로컬 PC에서 SSH-Key 생성
+>ssh-keygen -t rsa
+
+공개키가 생성되었는지 확인
+>cat ~/.ssh/id_rsa.pub
+
+다음과 같이 공개키가 ssh-rsa로 만들어진 것을 확인할 수 있다. 이것을 이용해서 git-server에 접근할때 인증하는 공개키로 사용할 것이다.
+
+ ssh-rsa AAAAB3..........NP/iiw== Saltfactory@Saltfactory.local
