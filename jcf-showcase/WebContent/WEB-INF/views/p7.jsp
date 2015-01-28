@@ -22,7 +22,7 @@
 		<script src="assets/bootstrap/js/bootstrap.js"></script>
 		<script src="assets/bootstrap/js/prettify.js"></script>
 		<script src="assets/bootstrap/js/application.js"></script>
-		<script src="js/p6.js"></script>
+		<script src="js/p7.js"></script>
 	</head>
 	<body data-spy="scroll" data-target=".bs-docs-sidebar">
 
@@ -44,9 +44,10 @@
 							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p3">대용량조회</a></li>
 							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p4">예외 및 메시지처리</a></li>
 							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p5">JCF Query</a></li>
-							<li class="active"><a href="/jcf-showcase/openpage.do?viewname=p6">활용 CASE</a></li>
+							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p6">활용 CASE</a></li>
 							<li class=""><a href="#">JCF-IAM(개발예정)</a></li>
-							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p7">YONG-DEV</a></li>
+							<li class="active"><a href="/jcf-showcase/openpage.do?viewname=p7">YONG-DEV</a></li>
+							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p8">전국요양병원현황</a></li>
 						</ul>
 					</div>
 				</div>
@@ -60,40 +61,43 @@
 			<div class="row">
 				<div class="span3 bs-docs-sidebar">
 					<ul class="nav nav-list bs-docs-sidenav">
-						<li><a href="#p61"> <i class="icon-chevron-right"></i>Sample 예제</a></li>
+						<li><a href="#p71"> <i class="icon-chevron-right"></i>Sample 예제</a></li>
 					</ul>
 				</div>
 				<div class="span9">
 					<!-- Request Mapping -->
-					<section id="p61">
+					<section id="p71">
 	         			<div class="page-header">
-							<h3>Sample 예제</h3>
+							<h3>전국 요양병원 현황</h3>
 							<p>
-								JCF 를 활용한 화면 Sample 예제로써 조회 및 입력, 수정 작업을 할 수 있다.<br/>
-								관련코드는 com.jcf.sample.example 패키지에 나와있다.<br/>
-								참고로 업/다운로드 테스트는 소스를 받은뒤 각자 로컬에서 확인할 수 있다.
+								전국 요양병원 현황(요양병원명,주소,연락처)을 제공합니다.<br/>
+						 
 							</p>
 						</div>
-						<section id="p61_1">
+						<section id="p71_1">
 							<h4>List 조회</h4>
 								<table class="table table-striped">
 									<thead>
 										<tr>
-											<th>아이디</th>
-											<th>이름</th>
-											<th>핸드폰번호</th>
-											<th>지원부서</th>
+											<th>사번</th>
+											<th>성명</th>
+											<th>부서코드</th>
+											<th>부서명</th>
+											<th>직위</th>
 										</tr>
 									</thead>
 									<tbody>
 									</tbody>
 								</table>
 						</section>
-						<section id="p62">
+						
+						
+										
+						<section id="p72">
 							<h4 id="headings">Sample 입력, 수정</h4>
 							<br/><br/>
-							<form id="p62_1_Form"  action="/jcf-showcase/sample/example/saveExample.do" class="form-horizontal"  method="post"  enctype="multipart/form-data">
-								<div class="bs-docs-example" id="p62_1"><br/>
+							<form id="p72_1_Form"  action="/jcf-showcase/sample/example/saveExample.do" class="form-horizontal"  method="post"  enctype="multipart/form-data">
+								<div class="bs-docs-example" id="p72_1"><br/>
 									<input type="hidden" name="applyId" id="p62_1_applyId"  />
 									<div class="control-group">
 										<label class="control-label" for="p62_1_applyName">이름</label>

@@ -22,8 +22,10 @@
 		<script src="assets/bootstrap/js/bootstrap.js"></script>
 		<script src="assets/bootstrap/js/prettify.js"></script>
 		<script src="assets/bootstrap/js/application.js"></script>
-		<script src="js/p6.js"></script>
+		<script src="js/p8.js"></script>
 	</head>
+	<!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?v=3&sensor=false&language=ko"></script> -->
+	<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
 	<body data-spy="scroll" data-target=".bs-docs-sidebar">
 
 		<!-- Navbar -->
@@ -44,9 +46,10 @@
 							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p3">대용량조회</a></li>
 							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p4">예외 및 메시지처리</a></li>
 							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p5">JCF Query</a></li>
-							<li class="active"><a href="/jcf-showcase/openpage.do?viewname=p6">활용 CASE</a></li>
+							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p6">활용 CASE</a></li>
 							<li class=""><a href="#">JCF-IAM(개발예정)</a></li>
 							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p7">YONG-DEV</a></li>
+							<li class="active"><a href="/jcf-showcase/openpage.do?viewname=p8">전국요양병원현황</a></li>
 						</ul>
 					</div>
 				</div>
@@ -58,92 +61,60 @@
 		<div class="container">
 			<!-- Docs nav -->
 			<div class="row">
-				<div class="span3 bs-docs-sidebar">
+				<div class="span1 bs-docs-sidebar">
 					<ul class="nav nav-list bs-docs-sidenav">
-						<li><a href="#p61"> <i class="icon-chevron-right"></i>Sample 예제</a></li>
+						<li><a href="#p81"> <i class="icon-chevron-right"></i>Sample 예제</a></li>
 					</ul>
 				</div>
-				<div class="span9">
+				<div class="span11">
 					<!-- Request Mapping -->
-					<section id="p61">
+					<section id="p81">
 	         			<div class="page-header">
-							<h3>Sample 예제</h3>
+							<h3>전국 요양병원 현황</h3>
 							<p>
-								JCF 를 활용한 화면 Sample 예제로써 조회 및 입력, 수정 작업을 할 수 있다.<br/>
-								관련코드는 com.jcf.sample.example 패키지에 나와있다.<br/>
-								참고로 업/다운로드 테스트는 소스를 받은뒤 각자 로컬에서 확인할 수 있다.
+								전국 요양병원 현황(요양병원명,주소,연락처)을 제공합니다.<br/>
+						 
 							</p>
 						</div>
-						<section id="p61_1">
+						<section id="p81_1">
 							<h4>List 조회</h4>
 								<table class="table table-striped">
 									<thead>
 										<tr>
-											<th>아이디</th>
-											<th>이름</th>
-											<th>핸드폰번호</th>
-											<th>지원부서</th>
+											<th>구분</th>
+											<th>병원명</th>
+											<th>위도</th>
+											<th>요양병상수</th>
+											<th>소재지지번주소</th>
+											<th>경도</th>
+											<th>근무시간</th>											
+											<th>소재지도로명주소</th>											
+											<th>소재지우편번호</th>											
+											<th>진료과목</th>											
+											<th>ID</th>											
+											<th>연락처</th>			
+											<th>지도(위치)</th>								
 										</tr>
 									</thead>
 									<tbody>
 									</tbody>
 								</table>
 						</section>
-						<section id="p62">
-							<h4 id="headings">Sample 입력, 수정</h4>
+						
+						
+										
+						<section id="p82">
+							<h4 id="headings">지도</h4>
 							<br/><br/>
-							<form id="p62_1_Form"  action="/jcf-showcase/sample/example/saveExample.do" class="form-horizontal"  method="post"  enctype="multipart/form-data">
-								<div class="bs-docs-example" id="p62_1"><br/>
-									<input type="hidden" name="applyId" id="p62_1_applyId"  />
+							<form id="p82_1_Form"   class="form-horizontal"  method="post"  enctype="multipart/form-data">
+								<div class="bs-docs-example" id="p82_1"><br/>
+									<input type="hidden" name="applyId" id="p82_1_applyId"  />
 									<div class="control-group">
-										<label class="control-label" for="p62_1_applyName">이름</label>
-										<div class="controls">
-											<input type="text" name="applyName" id="p62_1_applyName" placeholder="이름" />
-										</div>
-										<br/>
-										<!--
-	                      				<div class="control-group">
-	                      	           		<div id="p62_1_pic" >
-	                      	           			<label class="control-label" for="p21_2_param3">사진 업로드 (DB저장)</label>
-	                      	           			<div class="controls"><input type="file" name="dbFileId">
-												</div>
-											</div>
-										</div>
-										 -->
-										<div class="control-group">
-											<label class="control-label" for="p62_1_phoneNum">휴대폰 번호</label>
-											<div class="controls">
-												<input type="text" name="phoneNum" id="p62_1_phoneNum" placeholder="휴대폰 번호" />
-											</div>
-										</div>
-										<div class="control-group">
-											<label class="control-label" for="p62_1_applyDept">지원부서</label>
-											<div id="applyDept_combo" class="controls">
-												<select name="applyDept" id="p62_1_applyDept">
-													<option value="01"  selected="selected">물류팀</option>
-													<option value="02">인사팀</option>
-													<option value="03">홍보팀</option>
-												</select>
-											</div>
-	                                    </div>
-										<div class="control-group">
-											<label class="control-label">포트폴리오 첨부<br/>파일시스템에 저장</label>
-											<div class="controls">
-												<div id="p62_4_iframe" class="form-horizontal">
-	                           						<iframe src="openpage.do?viewname=p6_iframe_1" width="500" height="120" name="main" style="border:0;"></iframe>
-												</div>
-											</div>
-											<div class="controls">
-												<button class="btn" type="submit" id="p62_1_btn2">저장</button>
-												<button class="btn" type="reset" id="p62_1_btn1">신규</button>
-											</div>
-										</div>
-										<br />
-										<input type="hidden" name="fileName" id="p62_1_attchName" />
-										<input type="hidden" name="callName" id="p62_1_attchId" />
-								    	<input type="hidden" name="fold" id="p62_1_attchFold" />
-								    	<input type="hidden" name="dbFileId" id="p62_1_dbFileId" />
+										<label class="control-label" for="p82_4_iframe">위치:</label>
+										<div id='map_canvas' style='width:300px;height:300px;'></div>
 									</div>
+									
+									<br/>
 								</div>
 							</form>
 						</section>
