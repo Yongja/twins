@@ -1,0 +1,5 @@
+package springbook.learningtest.templete;
+
+public interface LineCallbackGeneric<T> {
+	T doSomethingWithReader(String line, T value);
+}

@@ -24,15 +24,16 @@ public class UserDaoTest {
 	public void setUp() {
 		ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
 		this.dao = context.getBean("userDao", UserDao.class);
-		
-		this.user1 = new User("gyumee", "¹Ú¼ºÃ¶", "springno1");
-		this.user2 = new User("leegw700", "ÀÌ±æ¿ø", "springno2");
-		this.user3 = new User("bumjin", "¹Ú¹üÁø", "springno3");
+		System.out.println(context);
+		this.user1 = new User("gyumee", "ê°•í•œì", "springno1");
+		this.user2 = new User("leegw700", "í•œì—…ë¬´", "springno2");
+		this.user3 = new User("bumjin", "ë‚¨ì€ì", "springno3");
 
 	}
 	
 	@Test 
 	public void andAndGet() throws SQLException {		
+		
 		dao.deleteAll();
 		assertThat(dao.getCount(), is(0));
 

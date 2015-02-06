@@ -1,0 +1,14 @@
+package springbook.learningtest.junit.templete;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Calculator {
+	public Integer calcSum(String filePath) throws IOException{
+		int cnt = 0;
+	 BufferedReader reader = new BufferedReader(new FileReader(filePath));
+		return cnt;
+	}
+
+}

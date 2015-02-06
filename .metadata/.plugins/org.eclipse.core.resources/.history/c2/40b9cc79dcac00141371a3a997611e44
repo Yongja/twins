@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package springbook.user.service;
+
+/**
+ * @author JamesPark
+ *
+ */
+public interface UserServiceUpgradePolicy {
+	
+}

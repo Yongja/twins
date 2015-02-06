@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testrun name="UserTest (1)" project="spring30-5.1.1" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="springbook.user.domain.UserTest" time="91.199">
+    <testcase name="upgradeLevel" classname="springbook.user.domain.UserTest" time="91.199"/>
+    <testcase name="cannotUpgradeLevel" classname="springbook.user.domain.UserTest" time="0.0"/>
+  </testsuite>
+</testrun>

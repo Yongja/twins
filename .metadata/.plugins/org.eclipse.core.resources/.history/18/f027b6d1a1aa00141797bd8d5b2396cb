@@ -1,0 +1,5 @@
+package springbook.learningtest.templete;
+
+public interface LineCallback {
+인터페이스
+}

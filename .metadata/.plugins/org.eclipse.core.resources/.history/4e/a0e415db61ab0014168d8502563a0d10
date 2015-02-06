@@ -1,0 +1,6 @@
+package springbook.learningtest.templete;
+
+//public interface LineCallback {
+public interface LineCallback<T> {
+	Integer doSomethingWithReader(String line, Integer sum);
+}

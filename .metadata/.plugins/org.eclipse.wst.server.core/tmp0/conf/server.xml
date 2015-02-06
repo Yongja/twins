@@ -131,7 +131,7 @@
                prefix="localhost_access_log." suffix=".txt" pattern="common" resolveHosts="false"/>
         -->
 
-      <Context docBase="C:\JCF\JCF-IDE\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\JCF\JCF-IDE\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jcf-showcase" path="/jcf-showcase" reloadable="true" source="org.eclipse.jst.jee.server:jcf-showcase"/></Host>
+      <Context docBase="D:\study\git_hub\jcf\twins\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\study\git_hub\jcf\twins\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jcf-showcase" path="/jcf-showcase" reloadable="true" source="org.eclipse.jst.jee.server:jcf-showcase"/></Host>
     </Engine>
   </Service>
 </Server>

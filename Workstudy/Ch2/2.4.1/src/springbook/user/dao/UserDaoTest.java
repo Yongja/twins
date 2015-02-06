@@ -33,10 +33,10 @@ public class UserDaoTest {
 	@Before
 	public void setUp() {
 		this.dao = this.context.getBean("userDao", UserDao.class);
-		
-		this.user1 = new User("gyumee", "¹Ú¼ºÃ¶", "springno1");
-		this.user2 = new User("leegw700", "ÀÌ±æ¿ø", "springno2");
-		this.user3 = new User("bumjin", "¹Ú¹üÁø", "springno3");
+		System.out.println(this.context);
+		this.user1 = new User("gyumee", "ê°•í•œì", "springno1");
+		this.user2 = new User("leegw700", "ë‚¨ì€ì", "springno2");
+		this.user3 = new User("bumjin", "ëŒ€ì¤‘ì†Œ", "springno3");
 
 	}
 	

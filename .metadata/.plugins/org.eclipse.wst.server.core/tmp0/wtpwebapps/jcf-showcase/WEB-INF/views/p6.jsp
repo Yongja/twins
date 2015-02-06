@@ -44,8 +44,9 @@
 							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p3">대용량조회</a></li>
 							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p4">예외 및 메시지처리</a></li>
 							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p5">JCF Query</a></li>
-							<li class="active"><a href="openpage.do?viewname=p6">활용 CASE</a></li>
+							<li class="active"><a href="/jcf-showcase/openpage.do?viewname=p6">활용 CASE</a></li>
 							<li class=""><a href="#">JCF-IAM(개발예정)</a></li>
+							<li class=""><a href="/jcf-showcase/openpage.do?viewname=p7">YONG-DEV</a></li>
 						</ul>
 					</div>
 				</div>

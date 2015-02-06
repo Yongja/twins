@@ -1,0 +1,5 @@
+package springbook.learningtest.templete;
+
+public interface LineCallback {
+	Integer doSomethingWithReader(String filePahName, String line, Integer sum);
+}

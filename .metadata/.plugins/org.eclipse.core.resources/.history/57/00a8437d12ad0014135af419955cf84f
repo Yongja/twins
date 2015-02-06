@@ -1,0 +1,122 @@
+package springbook.user.service;
+
+import java.util.List;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
+
+import com.mysql.jdbc.interceptors.SessionAssociationInterceptor;
+
+import springbook.user.dao.UserDao;
+import springbook.user.domain.Level;
+import springbook.user.domain.User;
+ 
+
+public class UserService {
+	public static final int MIN_LOGCOUNT_FOR_SILVER = 50;
+	public static final int MIN_RECOMMENT_FOR_GOLD = 30;
+	
+	UserDao userDao;
+	
+	
+	/**
+	 * @param userDao the userDao to set
+	 */
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+	
+	
+/*	private DataSource dataSource;
+	
+	public void setDataSource(DataSource dataSource){
+		this.dataSource = dataSource;
+	}
+	*/
+
+	
+	private PlatformTransactionManager transactionManager;
+	
+	
+	/**
+	 * @param transactionManager the transactionManager to set
+	 */
+	public void setTransactionManager(PlatformTransactionManager transactionManager) {
+		this.transactionManager = transactionManager;
+	}
+
+	public void upgradeLevels(){
+		
+//		PlatformTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
+		
+		TransactionStatus status =  this.transactionManager.getTransaction(new DefaultTransactionDefinition());
+		
+		try{
+		List<User> users = userDao.getAll();
+		
+			for(User user: users){
+				if (this.canUpgradeLevel(user)){
+					this.upgradeLevel(user);
+				}				
+			}
+			this.transactionManager.commit(status);
+			
+		}catch(RuntimeException e){
+			this.transactionManager.rollback(status);
+		}
+		
+	/* Boolean chklevel = null;
+	    for(User user : users){
+			if (user.getLevel()==Level.BASIC && user.getLogin() >= 50){
+				chklevel = true;
+				user.setLevel(Level.SILVER);
+			}
+			else if(user.getLevel() == Level.SILVER && user.getRecommend() >= 30){
+				chklevel = true;
+				user.setLevel(Level.GOLD);					
+			}
+			else if(user.getLevel() == Level.GOLD ) {chklevel = false;}
+			else{chklevel = false;}
+			
+			if (chklevel) userDao.update(user);
+		}*/
+	}
+	
+	private boolean canUpgradeLevel(User user){
+		Level currentLevel = user.getLevel();
+		switch(currentLevel){
+			case BASIC: return(user.getLogin() >= MIN_LOGCOUNT_FOR_SILVER);
+			case SILVER: return(user.getRecommend() >= MIN_RECOMMENT_FOR_GOLD);
+			case GOLD: return false;
+			default: throw new IllegalArgumentException("Uknown Level:"+currentLevel);
+		}		
+	}
+	
+	protected void upgradeLevel(User user){
+//		if (user.getLevel() == Level.BASIC) user.setLevel(Level.SILVER);
+//		else if (user.getLevel() == Level.SILVER) user.setLevel(Level.GOLD);
+		user.upgradeLevel();
+		userDao.update(user);
+		
+	}
+	
+	private void sendUpgradeEMail(User user){
+		
+		Properties props = new Properties();
+		props.put("mial.smtp.host","mail.ksug.org");
+		Session s = Session.getInstance(props, null);
+		
+	}
+	
+	
+	public void add(User user){
+		if (user.getLevel()==null)  user.setLevel(Level.BASIC);
+		userDao.add(user);
+	}
+
+}

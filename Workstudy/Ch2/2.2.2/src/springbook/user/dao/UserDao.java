@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.springframework.dao.EmptyResultDataAccessException;
+
 import springbook.user.domain.User;
 
 public class UserDao {
@@ -38,19 +40,51 @@ public class UserDao {
 		ps.setString(1, id);
 
 		ResultSet rs = ps.executeQuery();
-		rs.next();
-		User user = new User();
-		user.setId(rs.getString("id"));
-		user.setName(rs.getString("name"));
-		user.setPassword(rs.getString("password"));
-
+		User user = null;
+		if(rs.next()){
+			//rs.next();
+			user = new User();
+			user.setId(rs.getString("id"));
+			user.setName(rs.getString("name"));
+			user.setPassword(rs.getString("password"));
+		}
 		rs.close();
 		ps.close();
 		c.close();
 
+		if(user==null) throw new EmptyResultDataAccessException(1);
 		return user;
+		
+		
 	}
 
+	public void deleateAll(String id) throws SQLException {
+		Connection conn = this.dataSource.getConnection();
+		PreparedStatement ps = conn.prepareStatement("delete from users where id = ?");
+		ps.setString(1, id);
+		ps.executeUpdate();
+		
+		ps.close();
+		conn.close();
+		
+	}
+	
+	public int getCount(String id) throws SQLException{
+		Connection conn = this.dataSource.getConnection();
+		int i = 0;
+		String txSql = "select count(*) from users where id = ?";
+		PreparedStatement ps = conn.prepareStatement(txSql);
+		ps.setString(1, id);
+		
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		i = rs.getInt(1);
+		rs.close();
+		ps.close();
+		conn.close();
+		
+		return i;
+	}
 	
 
 }

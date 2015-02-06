@@ -1,0 +1,257 @@
+package springbook.user.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+import org.springframework.dao.EmptyResultDataAccessException;
+
+import springbook.user.domain.User;
+
+public class UserDaoCnj {
+	
+	public JdbcContext jdbcContext;
+	
+	/**
+	 * @param jdbcContext the jdbcContext to set
+	 */
+	public void setJdbcContext(JdbcContext jdbcContext) {
+		this.jdbcContext = jdbcContext;
+	}
+
+	private DataSource dataSource;
+
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
+	public void add(final User user) throws SQLException {
+		//user.setId("111");
+		/*class AddStatement implements StatementStategy {
+			User user = null;
+			
+			public	AddStatement(User user){
+				this.user = user;
+			}
+		
+			public PreparedStatement makePreparedStatement(Connection conn)
+					throws SQLException {
+				// TODO Auto-generated method stub
+				
+				PreparedStatement ps = conn.prepareStatement("insert into users(id, name, password) values(?,?,?)");
+				ps.setString(1, user.getId());
+				ps.setString(2, user.getName());
+				ps.setString(3, user.getPassword());
+					
+				return ps;
+			}
+
+		}*/
+
+		//StatementStategy st = new AddStatement(user);
+		//jdbcContextWithStatementStrategy(st);
+		
+		//jdbcContextWithStatementStrategy(new StatementStategy() {
+		jdbcContext.workWithStatementStrategy(new StatementStategy() {				
+			@Override
+			public PreparedStatement makePreparedStatement(Connection conn)
+					throws SQLException {
+				// TODO Auto-generated method stub
+				
+				PreparedStatement ps = conn.prepareStatement("insert into users(id, name, password) values(?,?,?)");
+				ps.setString(1, user.getId());
+				ps.setString(2, user.getName());
+				ps.setString(3, user.getPassword());
+					
+				return ps;
+				}
+			}
+				
+		);
+/*		PreparedStatement ps = c.prepareStatement(
+			"insert into users(id, name, password) values(?,?,?)");
+		ps.setString(1, user.getId());
+		ps.setString(2, user.getName());
+		ps.setString(3, user.getPassword());
+*/
+//		ps.executeUpdate();
+
+//		ps.close();
+//		c.close();
+	}
+
+	public User get(String id) throws SQLException {
+
+		Connection c = this.dataSource.getConnection();
+		PreparedStatement ps = c
+				.prepareStatement("select * from users where id = ?");
+		ps.setString(1, id);
+
+		ResultSet rs = ps.executeQuery();
+		User user = null;
+		if(rs.next()){
+			//rs.next();
+			user = new User();
+			user.setId(rs.getString("id"));
+			user.setName(rs.getString("name"));
+			user.setPassword(rs.getString("password"));
+		}
+		rs.close();
+		ps.close();
+		c.close();
+
+		if(user==null) throw new EmptyResultDataAccessException(1);
+		return user;
+		
+		
+	}
+
+	public void deleteAll() throws SQLException {
+//		Connection conn = null;
+//		PreparedStatement ps = null;
+//		 		
+//		try{
+//			conn = this.dataSource.getConnection();
+		
+//			ps = conn.prepareStatement("delete from users");
+			//Interface 실행함
+
+			
+//			public class DeleteAllStatement implements StatementStategy {
+//
+//				public PreparedStatement makePreparedStatement(Connection conn)
+//						throws SQLException {
+//					// TODO Auto-generated method stub
+//					PreparedStatement ps = conn.prepareStatement("delete from users");
+//					
+//					return ps;
+//				}
+//
+//			}
+//			StatementStategy strategy = new DeleteAllStatement();
+//			jdbcContextWithStatementStrategy(strategy);
+			
+			jdbcContext.workWithStatementStrategy(new StatementStategy() {
+				
+				@Override
+				public PreparedStatement makePreparedStatement(Connection conn)
+						throws SQLException {
+					// TODO Auto-generated method stub
+					// TODO Auto-generated method stub
+					PreparedStatement ps = conn.prepareStatement("delete from users");
+					
+					return ps;
+				}
+			});
+			
+//			ps =  strategy.makePreparedStatement(conn);
+//			ps = this.makeStatement(conn);
+//			ps.executeUpdate();
+//		}catch(SQLException e){
+//			throw e;
+//			
+//		}finally{
+//			
+//			if(ps!=null){
+//				try{
+//					ps.close();
+//				}catch(SQLException e){
+//					
+//				}
+//				
+//			}
+//			if(conn != null){
+//				try{
+//					conn.close();
+//				}catch(SQLException e){
+//					
+//				}			
+//			}
+//		}		
+	}
+	
+	/*public void jdbcContextWithStatementStrategy(StatementStategy st) throws SQLException{
+		Connection conn = null;
+		PreparedStatement ps = null;
+		 
+		try{
+			conn = this.jdbcContext.dataSource.getConnection();		
+			ps =  st.makePreparedStatement(conn);
+			ps.executeUpdate();
+			
+		}catch(SQLException e){
+			throw e;			
+		}finally{			
+			if(ps!=null){try{	ps.close();	}catch(SQLException e){	}}
+			if(conn != null){try{	conn.close(); }catch(SQLException e){}}
+		}
+		
+	}*/
+//	private PreparedStatement makeStatement(Connection conn) throws SQLException{
+//		PreparedStatement ps = conn.prepareStatement("delete from users");
+//		return ps;
+//		
+//	}
+	
+//	protected abstract PreparedStatement makeStatement(Connection conn) throws SQLException;
+	
+	public int getCount() throws SQLException{
+		// 변화지 않는 부분 ---a
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		int i = 0;
+		
+		try{
+			conn = this.dataSource.getConnection();
+		// 변화지 않는 부분 -----'a
+		
+	    // 변화는 부분 ----------b
+			String txSql = "select count(*) from users ";
+			ps = conn.prepareStatement(txSql);
+			//ps.setString(1, id);
+			// 변경이 안되는 부분
+			rs = ps.executeQuery();
+			rs.next();
+			i = rs.getInt(1);
+		// 변화는 부분 
+			
+		}catch(SQLException e){
+			
+			throw e;
+			
+		}finally{
+			if(rs!=null) {
+				try{
+				rs.close();
+				}catch(SQLException e){
+					
+				}
+			}
+			if(ps!=null){
+				try{
+					ps.close();
+				}catch(SQLException e){
+					
+				}
+				
+			}
+			if(conn != null){
+				try{
+					conn.close();
+				}catch(SQLException e){
+					
+				}
+			
+			}
+		}
+
+		
+		return i;
+	}
+	
+}

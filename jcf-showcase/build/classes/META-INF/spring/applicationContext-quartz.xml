@@ -31,7 +31,7 @@
     <!-- repeatInterval은 몇 초에 한번씩 실행될 건지 세팅(ms 단위: 현재 1초) -->        
     <bean id = "SystemOutTestTrigger" class ="org.springframework.scheduling.quartz.SimpleTriggerBean">
         <property name = "jobDetail" ref="SystemOutTest" />
-        <property name = "repeatInterval" value="3000" />
+        <property name = "repeatInterval" value="600000" />
         <property name = "startDelay" value="2000" />        
     </bean>
     

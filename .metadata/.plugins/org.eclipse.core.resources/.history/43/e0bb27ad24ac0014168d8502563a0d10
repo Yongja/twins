@@ -1,0 +1,16 @@
+package springbook.user.dao;
+
+import java.util.List;
+
+import springbook.user.domain.User;
+
+public interface UserDaoJdbc {
+	
+	void add(User user);
+	User get(String id);
+	void deleteAll();
+	int getCount();
+	List<User> getAll();
+	
+
+}

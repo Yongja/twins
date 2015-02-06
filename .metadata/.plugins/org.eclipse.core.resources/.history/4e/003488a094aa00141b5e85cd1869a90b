@@ -1,0 +1,21 @@
+package springbook.learningtest.templete;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
+
+import java.io.FileReader;
+
+import org.junit.Test;
+
+public class CalcTest {
+
+	@Test
+	public void test() {
+		Calculator cc = new Calculator();
+		int sum = cc.calcSum(getClass().getResource("numbers.txt").getPath());
+//		File file =  new File("D:\study\git_hub\jcf\twins\Workstudy\Ch2\2.5\src\springbook\learningtest\junit\templete\numbers.txt");
+		assertThat(sum , is(0));
+		fail("Not yet implemented");
+	}
+
+}

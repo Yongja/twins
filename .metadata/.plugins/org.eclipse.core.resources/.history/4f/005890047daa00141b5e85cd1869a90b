@@ -1,0 +1,25 @@
+package springbook.learningtest.templete;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TestCaseMath {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+		
+		int i = 1 ;
+		int j = 2 ;
+		
+		int sum = 1;
+		
+		i += sum;
+		j += sum;
+		
+		assertThat(i,is( j));
+		
+	}
+
+}

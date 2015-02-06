@@ -20,17 +20,17 @@
 		http://www.daewoobrenic.co.kr/schema/jcfquery
 		http://www.daewoobrenic.co.kr/schema/jcfquery/jcf-query-1.0.xsd">
 
-<!-- 	<jdbc:embedded-database id="dataSource1" type="HSQL">
+	<jdbc:embedded-database id="dataSource" type="HSQL">
 		<jdbc:script location="classpath:META-INF/db-script/hsql-sample-db-script.sql"/>
 	</jdbc:embedded-database>
- -->
+
  
-	<bean id="dataSource"
+<!-- 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		p:driverClassName="#{app['jdbc.driverClassName']}" p:username="#{app['jdbc.username']}"
 		p:password="#{app['jdbc.password']}" p:url="#{app['jdbc.url']}" />
 	 
-
+ -->
 	<jcfquery:query-config id="queryExecutor" datasource="dataSource" template-engine-type="IBATIS" ibatis-sqlmap-client="sqlMapClient" />
 
 	<bean id="commonDao" class="com.jcf.system.dao.CommonDaoImpl" depends-on="queryExecutor">

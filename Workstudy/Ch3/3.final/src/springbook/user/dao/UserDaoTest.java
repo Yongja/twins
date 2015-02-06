@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -28,9 +30,9 @@ public class UserDaoTest {
 	
 	@Before
 	public void setUp() {
-		this.user1 = new User("gyumee", "¹Ú¼ºÃ¶", "springno1");
-		this.user2 = new User("leegw700", "ÀÌ±æ¿ø", "springno2");
-		this.user3 = new User("bumjin", "¹Ú¹üÁø", "springno3");
+		this.user1 = new User("gyumee", "ê°•í•œì", "springno1");
+		this.user2 = new User("leegw700", "ìœ ë¦¬ìƒ", "springno2");
+		this.user3 = new User("bumjin", "ì¡°ê¸ˆë§Œ", "springno3");
 
 	}
 	
@@ -108,4 +110,11 @@ public class UserDaoTest {
 		assertThat(user1.getPassword(), is(user2.getPassword()));
 	}
 
+//	@Test(expected=DataAccessException.class)
+	@Test(expected=DataIntegrityViolationException.class)
+	public void duplciateKey(){
+		dao.deleteAll();
+		dao.add(user1);
+		dao.add(user1);
+	}
 }

@@ -7,7 +7,6 @@ import jcf.sua.mvc.MciResponse;
 import jcf.upload.FileInfo;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -67,4 +66,22 @@ public class ExampleController {
 
 		response.setDownloadFile(fileInfo);
 	}
+	
+	@RequestMapping("/getEmpList")
+	public void getEmpList(MciRequest request, MciResponse response) {
+		List<Example> list = service.getEmpList();
+		
+		response.setList("EMP_OUT", list);
+	}
+
+	@RequestMapping("/getWSList")
+	public void getWSList(MciRequest request, MciResponse response) {
+	//	XmlReaderExample xre = null;
+		List<Example> list = service.getWebService();
+	//	List list = xre.getWebService();
+		//List<Example> list = service.getEmpList();
+		
+		response.setList("DS_OUT", list);
+	}
+	
 }

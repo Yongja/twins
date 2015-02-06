@@ -25,5 +25,6 @@
 	<classpathentry kind="lib" path="lib/org.springframework.oxm-3.0.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/org.springframework.test-3.0.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/org.springframework.transaction-3.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/study/git_hub/jcf/twins/Workstudy/Lib/lib/java-mail-1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

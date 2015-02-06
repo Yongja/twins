@@ -34,9 +34,9 @@ public class UserDaoTest {
 	
 	@Before
 	public void setUp() {
-		this.user1 = new User("gyumee", "¹Ú¼ºÃ¶", "springno1");
-		this.user2 = new User("leegw700", "ÀÌ±æ¿ø", "springno2");
-		this.user3 = new User("bumjin", "¹Ú¹üÁø", "springno3");
+		this.user1 = new User("gyumee", "ì†Œìƒí¬", "springno1");
+		this.user2 = new User("leegw700", "ê°ì¶”ë½", "springno2");
+		this.user3 = new User("bumjin", "ì •ë‹¤ìš´", "springno3");
 	}
 	
 	@Test 
@@ -133,6 +133,7 @@ public class UserDaoTest {
 			SQLException sqlEx = (SQLException)ex.getCause();
 			SQLExceptionTranslator set = new SQLErrorCodeSQLExceptionTranslator(this.dataSource);			
 			DataAccessException transEx = set.translate(null, null, sqlEx);
+			System.out.println(transEx);
 			assertThat(transEx, is(DuplicateKeyException.class));
 		}
 	}

@@ -21,7 +21,7 @@ public class UserDaoTest {
 		
 		User user = new User();
 		user.setId("gyumee");
-		user.setName("�ڼ�ö");
+		user.setName("강한자");
 		user.setPassword("springno1");
 
 		dao.add(user);

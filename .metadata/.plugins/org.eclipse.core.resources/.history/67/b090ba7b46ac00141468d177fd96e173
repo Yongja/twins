@@ -1,0 +1,27 @@
+package springbook.user.service;
+
+import java.util.List;
+
+import springbook.user.dao.UserDao;
+import springbook.user.domain.User;
+
+public class UserService {
+	UserDao userDao;
+	/**
+	 * @param userDao the userDao to set
+	 */
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+	
+	public void upgradeLevels(){
+		List<User> users = userDao.getAll();
+		
+		for(User user:users){
+			
+		}
+		
+	}
+	
+
+}

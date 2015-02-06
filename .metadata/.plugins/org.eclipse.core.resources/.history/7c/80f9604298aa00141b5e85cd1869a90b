@@ -1,0 +1,7 @@
+package springbook.learningtest.templete;
+
+public interface BufferedReaderCallBack {
+	public Integer getBufferedReader(String filePath){
+		
+	}
+}

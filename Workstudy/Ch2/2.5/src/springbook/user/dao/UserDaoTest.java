@@ -19,7 +19,7 @@ import springbook.user.domain.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="/test-applicationContext.xml")
-@DirtiesContext
+//@DirtiesContext
 public class UserDaoTest {
 	@Autowired
 	ApplicationContext context;
@@ -34,9 +34,9 @@ public class UserDaoTest {
 	public void setUp() {
 		this.dao = this.context.getBean("userDao", UserDao.class);
 		
-		this.user1 = new User("gyumee", "¹Ú¼ºÃ¶", "springno1");
-		this.user2 = new User("leegw700", "ÀÌ±æ¿ø", "springno2");
-		this.user3 = new User("bumjin", "¹Ú¹üÁø", "springno3");
+		this.user1 = new User("gyumee", "ê°•ë³‘êµ¬", "springno1");
+		this.user2 = new User("leegw700", "ë•¡ì¹ ì´", "springno2");
+		this.user3 = new User("bumjin", "ì‚¼ì‚¼ì´", "springno3");
 
 	}
 	

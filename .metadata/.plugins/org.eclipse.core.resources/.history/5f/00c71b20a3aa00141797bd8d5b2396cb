@@ -1,0 +1,141 @@
+package springbook.learningtest.templete;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Calculator {
+	public Integer calcSumPre(String filePath) throws IOException{
+		BufferedReader br = null;
+		Integer sum = 0;
+		
+		String line = null;
+		try{
+			br = new BufferedReader(new FileReader(filePath));
+		
+			while( (line = br.readLine()) != null){
+				sum += Integer.valueOf(line); 
+			}
+			
+		}catch(IOException io){
+			
+			System.out.println(io.getMessage());
+			throw io;
+			
+		}finally{
+			
+			if(br!=null){ try{br.close(); } catch(IOException io ){System.out.println(io.getMessage()); }}
+		
+		}				
+		
+		return sum;
+	}
+	
+	public Integer calcSum(String filePath) throws IOException{
+		
+//		BufferedReaderCallBack brc = new BufferedReaderCallBack() {
+//			
+//			@Override
+//			public Integer doSomethingWithReader(BufferedReader br) throws IOException {
+//				Integer sum = 0;
+//				
+//				String line = null;
+//				
+//				// TODO Auto-generated method stub
+//				while( (line = br.readLine()) != null){
+//					sum += Integer.valueOf(line); 
+//				}
+//				return sum;
+//			}
+//		};
+		
+		LineCallback lcb = new LineCallback() {
+			
+			@Override
+			public Integer doSomethingWithReader(String line, Integer sum) {
+				// TODO Auto-generated method stub
+				 Ingeger sum =0 ;
+				 String line = null;
+				 
+			}
+		};
+		//BufferedReader	br = new BufferedReader(new FileReader(filePath));
+		return fileReaderTemplate(filePath, brc );
+	}
+	
+	
+	
+	public Integer calcMultiply(String filePath) throws IOException{
+		 
+		
+		BufferedReaderCallBack brc = new BufferedReaderCallBack() {
+			
+			@Override
+			public Integer doSomethingWithReader(BufferedReader br) throws IOException {
+				Integer sum = 1;
+				String line = null;
+				// TODO Auto-generated method stub
+				
+				while((line = br.readLine()) != null ){
+					
+					sum *= Integer.valueOf(line);
+				}
+				
+				return sum;
+			}
+		};
+		
+		return this.fileReaderTemplate(filePath, brc);
+	}
+
+	public Integer lineReaderTemplate(String filePath,LineCallback lcb) throws IOException{
+		BufferedReader br = null;
+		//Integer sum = 0;
+		int d = 0;
+		String line = null;
+		try{
+			br = new BufferedReader(new FileReader(filePath));
+			
+			// d = brc.doSomethingWithReader(br);
+			d= lcb.doSomethingWithReader(line, sum);
+			 
+			
+		}catch(IOException io){
+			
+			System.out.println(io.getMessage());
+			throw io;
+			
+		}finally{
+			
+			if(br!=null){ try{br.close(); } catch(IOException io ){System.out.println(io.getMessage()); }}
+		
+		}				
+		
+		return d;
+	}	
+	
+	public Integer fileReaderTemplate(String filePath,BufferedReaderCallBack brc) throws IOException{
+		BufferedReader br = null;
+		//Integer sum = 0;
+		int d = 0;
+		String line = null;
+		try{
+			br = new BufferedReader(new FileReader(filePath));
+			 d = brc.doSomethingWithReader(br);
+			
+			 
+			
+		}catch(IOException io){
+			
+			System.out.println(io.getMessage());
+			throw io;
+			
+		}finally{
+			
+			if(br!=null){ try{br.close(); } catch(IOException io ){System.out.println(io.getMessage()); }}
+		
+		}				
+		
+		return d;
+	}	
+}

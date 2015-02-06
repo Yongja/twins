@@ -120,5 +120,11 @@ public class CommonDaoImpl implements CommonDao {
 	public Map<String, Object> executeCallStatement(Object statementTemplate, Object parameter) {
 		return queryExecutor.executeCallStatement(statementTemplate, parameter);
 	}
+	
 
+//	@Override
+//	public List aa() {
+//		return xre.getWebService();
+//	}
+//	
 }

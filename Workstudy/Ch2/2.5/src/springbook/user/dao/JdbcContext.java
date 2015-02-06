@@ -1,0 +1,50 @@
+package springbook.user.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+public class JdbcContext {
+	// Spring DI(Dependency Injection)
+	DataSource dataSource;
+ 
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
+	public void workWithStatementStrategy(StatementStrategy st) throws SQLException{
+		Connection conn = null;
+		PreparedStatement ps = null;	 
+		
+		try{
+			conn = this.dataSource.getConnection();		
+			ps =  st.makePreparedStatement(conn);
+			ps.executeUpdate();
+			
+		}catch(SQLException e){
+			throw e;			
+		}finally{			
+			if(ps!=null){ try{	ps.close();	}catch(SQLException e){	}}
+			if(conn != null){try{	conn.close();}catch(SQLException e){}}
+		}
+	}
+	
+	public void executeSql(final String sql) throws SQLException{
+		
+		this.workWithStatementStrategy(new StatementStrategy() {
+			
+		
+			public PreparedStatement makePreparedStatement(Connection conn)
+					throws SQLException {
+				
+				return conn.prepareStatement(sql);
+				
+			}
+			
+		});
+		
+	}
+	
+}

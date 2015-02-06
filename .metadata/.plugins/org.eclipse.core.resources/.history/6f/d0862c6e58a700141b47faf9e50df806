@@ -1,0 +1,5 @@
+package springbook.user.dao;
+
+public interface StatementStategy {
+인터페이스
+}

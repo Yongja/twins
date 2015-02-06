@@ -1,0 +1,11 @@
+package springbook.learningtest.junit.templete;
+
+public class TestMath {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+	}
+
+}

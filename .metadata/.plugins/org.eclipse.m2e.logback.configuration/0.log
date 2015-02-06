@@ -1,0 +1,23 @@
+2015-01-15 11:29:37,649 [pool-3-thread-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-01-15 11:29:37,649 [pool-3-thread-3] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-01-15 11:29:37,649 [pool-3-thread-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-01-15 11:29:37,649 [pool-3-thread-2] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-01-15 11:29:38,540 [New I/O client worker #4-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.expertvill.net/nexus/content/repositories/thirdparty/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+2015-01-15 11:29:38,560 [pool-3-thread-2] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-01-15 11:29:38,711 [New I/O client worker #2-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+2015-01-15 11:29:38,712 [New I/O client worker #2-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+2015-01-15 11:29:38,904 [pool-3-thread-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-01-15 11:29:39,061 [New I/O client worker #5-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.springframework.org/external/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+2015-01-15 11:29:39,094 [pool-3-thread-2] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-01-15 11:29:39,166 [New I/O client worker #7-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://dev.daewoobrenic.co.kr/nexus/content/repositories/jcf-release/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+2015-01-15 11:29:39,170 [pool-3-thread-2] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-01-15 11:29:39,233 [New I/O client worker #3-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.springframework.org/release/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+2015-01-15 11:29:39,589 [New I/O client worker #6-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.springframework.org/milestone/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+2015-01-15 11:29:40,074 [New I/O client worker #1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository-haibane.forge.cloudbees.com/release/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+2015-01-15 11:29:40,819 [New I/O client worker #8-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://dev.daewoobrenic.co.kr/nexus/content/groups/public/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+2015-01-15 11:29:40,823 [New I/O client worker #8-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://dev.daewoobrenic.co.kr/nexus/content/groups/public/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+2015-01-15 11:29:40,877 [ModalContext] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-01-15 11:29:41,202 [New I/O client worker #9-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-quickstart/1.1/maven-archetype-quickstart-1.1.jar
+2015-01-15 11:29:41,203 [New I/O client worker #9-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-quickstart/1.1/maven-archetype-quickstart-1.1.jar
+2015-02-05 10:27:19,532 [main] INFO  org.eclipse.jetty.server.Server - jetty-8.1.10.v20130312
+2015-02-05 10:27:19,750 [main] INFO  o.e.jetty.server.AbstractConnector - Started SelectChannelConnector@0.0.0.0:4176

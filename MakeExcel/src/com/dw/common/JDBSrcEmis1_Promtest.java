@@ -36,15 +36,18 @@ public class JDBSrcEmis1_Promtest
     /*
     *****************************************************************************************
         Title       :   getConnection
-        Description :   db Connection ¾ò±â ( dbms ÀÌ¿ë )
+        Description :   db Connection ï¿½ï¿½ï¿½ ( dbms ï¿½Ì¿ï¿½ )
     *****************************************************************************************
     */
     public          Connection      getConnection()
     {
         String                  	strDrvr             = "oracle.jdbc.driver.OracleDriver";
-        String                  	strUrll             = "jdbc:oracle:thin:@133.1.7.194:1953:EMIS1";
-        String                  	strIdnt             = "promtest";
-        String                  	strPswd             = "37rioljfa";
+        String                  	strUrll             = "jdbc:oracle:thin:@localhost:1521:IROSDB";
+        String                  	strIdnt             = "soa";
+        String                  	strPswd             = "soa";
+//        String                  	strUrll             = "jdbc:oracle:thin:@133.1.7.194:1953:EMIS1";        
+//        String                  	strIdnt             = "promtest";
+//        String                  	strPswd             = "37rioljfa";
         String                 		strDbcp        		= "JDBSrcEmis1_Promtest";	// "zzDbcp"
 
         boolean                 	bbAutoCommit        = false;

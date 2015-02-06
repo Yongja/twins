@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="/spring30-lib/lib/org.springframework.core-3.0.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/spring30-lib/lib/org.springframework.expression-3.0.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/spring30-lib/lib/org.springframework.jdbc-3.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/spring30-lib/lib/ojdbc14.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -74,4 +74,11 @@
 		 WHERE APPLY_ID = #applyId#
 	</update>
 
+
+	<statement id="selectEmpList" resultClass="com.jcf.sample.example.model.Example">
+		SELECT EMP_NO, EMP_KNAME, DEPT_CD, DEPT_NAME, POS_NAME
+		FROM APPLY_EMPLOYEE
+	
+	</statement>
+	
 </sqlMap>

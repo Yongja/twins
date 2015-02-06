@@ -35,9 +35,9 @@ public class UserDaoTest {
 	
 	@Before
 	public void setUp() {
-		this.user1 = new User("gyumee", "¹Ú¼ºÃ¶", "springno1", Level.BASIC, 1, 0);
-		this.user2 = new User("leegw700", "ÀÌ±æ¿ø", "springno2", Level.SILVER, 55, 10);
-		this.user3 = new User("bumjin", "¹Ú¹üÁø", "springno3", Level.GOLD, 100, 40);
+		this.user1 = new User("gyumee", "ê°•í•œì", "springno1", Level.BASIC, 1, 0,"admin@admin.co.kr");
+		this.user2 = new User("leegw700", "ì•½ê³¨ìˆ˜", "springno2", Level.SILVER, 55, 10,"admin@admin.co.kr");
+		this.user3 = new User("bumjin", "ê°ì‚¿ê°€", "springno3", Level.GOLD, 100, 40,"admin@admin.co.kr");
 	}
 	
 	@Test 
@@ -137,5 +137,22 @@ public class UserDaoTest {
 			DataAccessException transEx = set.translate(null, null, sqlEx);
 			assertThat(transEx, is(DuplicateKeyException.class));
 		}
+	}
+	
+	@Test
+	public void update(){
+		dao.deleteAll();
+		dao.add(user1);
+		
+		user1.setName("ì˜¤ë§Œìƒ");
+		user1.setPassword("20140901");
+		user1.setLevel(Level.GOLD);
+		user1.setLogin(1000);
+		user1.setRecommend(3);
+		dao.update(user1);
+		
+		User user1update = dao.get(user1.getId());
+		
+		checkSameUser(user1, user1update);
 	}
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_cPnOQKdxEeS3fuJOLG5_4g">
+  <modelElement href="spring30-2.5.uml#_P5r-8KdnEeSv1dV1CoTAJQ"/>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_kF84YKdxEeS3fuJOLG5_4g" name="A">
+    <modelElement href="spring30-2.5.uml#_kFgzgKdxEeS3fuJOLG5_4g"/>
+    <visualProperties xmi:id="_kF84YadxEeS3fuJOLG5_4g" position="103.0,109.0" size="309.0,207.0"/>
+    <visibility xmi:id="_kF84YqdxEeS3fuJOLG5_4g" label="+"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_kyCiUadxEeS3fuJOLG5_4g" name="B">
+    <modelElement href="spring30-2.5.uml#_kyCiUKdxEeS3fuJOLG5_4g"/>
+    <visualProperties xmi:id="_kyCiUqdxEeS3fuJOLG5_4g" position="579.0,121.0" size="344.0,229.0"/>
+    <visibility xmi:id="_kyCiU6dxEeS3fuJOLG5_4g" label="+"/>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

@@ -27,27 +27,48 @@ public class JUnitTest {
 	static ApplicationContext contextObject = null;
 	
 	@Test public void test1() {
+		System.out.println("(test1)testObject===> "+testObjects);
+		System.out.println("(test1)contextObject===> "+contextObject);
+		
 		assertThat(testObjects, not(hasItem(this)));
 		testObjects.add(this);
+		System.out.println("(test1)testObject===> "+testObjects);
+		System.out.println("(test1)contextObject===> "+contextObject);
 		
 		assertThat(contextObject == null || contextObject == this.context, is(true));
 		contextObject = this.context;
+
+		System.out.println("(test1)contextObject===> "+contextObject);
+		System.out.println("------------------------------------------");
 	}
 	
 	@Test public void test2() {
+		System.out.println("(test2)testObject===> "+testObjects);
+		System.out.println("(test2)contextObject===> "+contextObject);
+		
 		assertThat(testObjects, not(hasItem(this)));
 		testObjects.add(this);
+		System.out.println("(test2)testObject===> "+testObjects);
+		System.out.println("(test2)contextObject===> "+contextObject);
 		
 		assertTrue(contextObject == null || contextObject == this.context);
 		contextObject = this.context;
+		System.out.println("(test2)contextObject===> "+contextObject);
+		System.out.println("------------------------------------------");		
 	}
 	
 	@Test public void test3() {
+		System.out.println("(test3)testObject===> "+testObjects);
+		System.out.println("(test3)contextObject===> "+contextObject);	
+		
 		assertThat(testObjects, not(hasItem(this)));
 		testObjects.add(this);
+		System.out.println("(test3)testObject===> "+testObjects);
+		System.out.println("(test3)contextObject===> "+contextObject);
 		
 		assertThat(contextObject, either(is(nullValue())).or(is(this.contextObject)));
 		contextObject = this.context;
+		System.out.println("(test3)contextObject===> "+contextObject);
 	}
 }
 

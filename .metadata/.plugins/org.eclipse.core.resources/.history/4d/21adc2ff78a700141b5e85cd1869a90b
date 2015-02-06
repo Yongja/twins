@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_P5r-8KdnEeSv1dV1CoTAJQ" name="spring30_2_5">
+  <packagedElement xmi:type="uml:Class" xmi:id="_kFgzgKdxEeS3fuJOLG5_4g" name="A"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_kyCiUKdxEeS3fuJOLG5_4g" name="B"/>
+</uml:Model>

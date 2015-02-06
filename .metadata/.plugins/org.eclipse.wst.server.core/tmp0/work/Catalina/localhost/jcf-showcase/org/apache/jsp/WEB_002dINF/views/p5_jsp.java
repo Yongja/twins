@@ -93,6 +93,7 @@ public final class p5_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t\t<li class=\"active\"><a href=\"/jcf-showcase/openpage.do?viewname=p5\">JCF Query </a></li>\r\n");
       out.write("\t\t\t\t\t\t\t<li class=\"\"><a href=\"/jcf-showcase/openpage.do?viewname=p6\">활용 CASE</a></li>\r\n");
       out.write("\t\t\t\t\t\t\t<li class=\"\"><a href=\"#\">JCF-IAM(개발예정)</a></li>\r\n");
+      out.write("\t\t\t\t\t\t\t<li class=\"\"><a href=\"/jcf-showcase/openpage.do?viewname=p7\">YONG-DEV</a></li>\r\n");
       out.write("\t\t\t\t\t\t</ul>\r\n");
       out.write("\t\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t</div>\r\n");

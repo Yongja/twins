@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+package springbook.user.service;
+
+/**
+ * @author JamesPark
+ *
+ */
+public interface UserServiceUpgradePolicy {
+	boolean canUpgradeLevel(User user);
+	void upgradeLevel(User user)
+}

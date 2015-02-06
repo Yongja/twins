@@ -1,0 +1,92 @@
+package springbook.learningtest.templete;
+
+import java.util.ArrayList;
+
+public class TestMath {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+//		
+//		int i = 1 ;
+//		int j = 1 ;
+//		
+		int sum = 1;
+//		i++;
+//		//i += sum;
+//		//i = i + sum;
+//		
+//		//j =+ sum;
+//		++j;
+		
+		for (int i = 0; i<10 ; i++){
+			++sum;
+			System.out.println("i sum===>" + sum);
+		}
+		
+		sum = 1;
+		for (int j = 0 ; j < 10 ; j++){
+			sum++;
+			System.out.println("j sum===>" + sum);
+		}
+		
+		  // <String> 제네릭스를 사용한 경우 
+        ArrayList<String> mStringList = new ArrayList<String>();
+        mStringList.add("안녕하세요");
+        mStringList.add("3");
+         
+        for(String s : mStringList){
+            System.out.println(s);
+        }
+         
+        // <Integer> 제네릭스를 사용한 경우
+        ArrayList<Integer> mIntegerList = new ArrayList<Integer>();
+        mIntegerList.add(1);
+        mIntegerList.add(2);
+         
+        for(Integer i : mIntegerList){
+            System.out.println(i);
+        }
+         
+        // <Class명> 제네릭스를 사용한 경우
+        ArrayList<Tv> mTvList = new ArrayList<Tv>();
+        mTvList.add(new Tv());
+        mTvList.add(new Tv("New Tv"));
+         
+        for(Tv t : mTvList){
+            System.out.println(t);
+        }
+ 
+        // < 제네릭스를 사용하지 않은 경우 >
+        // 모든타입을 "add(Object)" Object형으로 List에 Add를 
+        // 시켜 주므로, List에서 자료를 꺼내올때는 각각에 맞는 형병환을
+        // 꼭 해주어야 하기 때문에 번거 롭다.
+        ArrayList mOriginalList = new ArrayList();
+        mOriginalList.add(1);
+        mOriginalList.add("string");
+        mOriginalList.add(new Tv("original"));
+ 
+        int a = (Integer) mOriginalList.get(0); 
+        String b = (String) mOriginalList.get(1); 
+        Tv c = (Tv) mOriginalList.get(2); 
+		
+	}
+ private	class Tv{
+		
+		private String caption;
+		
+		
+		public Tv(){
+			System.out.println("Tv 클래스입니다!");
+		}
+		
+		public Tv(String caption){
+			this.caption = caption;
+			
+		}
+		
+		public String toString(){
+			return caption;
+		}
+	}
+}

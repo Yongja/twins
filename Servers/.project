@@ -5,7 +5,13 @@
 	<projects>
 	</projects>
 	<buildSpec>
+		<buildCommand>
+			<name>org.obeonetwork.pim.uml2.gen.java.ui.acceleoUMLToJavaBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.obeonetwork.pim.uml2.gen.java.ui.acceleoUMLToJavaNature</nature>
 	</natures>
 </projectDescription>

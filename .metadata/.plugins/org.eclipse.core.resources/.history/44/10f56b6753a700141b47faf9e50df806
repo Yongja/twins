@@ -1,0 +1,12 @@
+package springbook.user.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+public class UserDaoDeleteAll extends UserDaoCnj {
+
+	private PreparedStatement makeStatement(Connection conn){
+		PreparedStatement ps =  conn.prepareStatement("");
+	}
+	
+}

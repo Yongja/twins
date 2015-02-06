@@ -17,10 +17,11 @@ public class UserDaoTest {
 	@Test 
 	public void andAndGet() throws SQLException {
 		ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
+		System.out.println(context);
 		UserDao dao = context.getBean("userDao", UserDao.class);
 
-		User user1 = new User("gyumee", "¹Ú¼ºÃ¶", "springno1");
-		User user2 = new User("leegw700", "ÀÌ±æ¿ø", "springno2");
+		User user1 = new User("gyumee", "ë‚¨ì€ì", "springno1");
+		User user2 = new User("leegw700", "ë°•ìƒë¬´", "springno2");
 		
 		dao.deleteAll();
 		assertThat(dao.getCount(), is(0));
@@ -42,11 +43,11 @@ public class UserDaoTest {
 	@Test
 	public void count() throws SQLException {
 		ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
-		
+		System.out.println(context);
 		UserDao dao = context.getBean("userDao", UserDao.class);
-		User user1 = new User("gyumee", "¹Ú¼ºÃ¶", "springno1");
-		User user2 = new User("leegw700", "ÀÌ±æ¿ø", "springno2");
-		User user3 = new User("bumjin", "¹Ú¹üÁø", "springno3");
+		User user1 = new User("gyumee", "ê°•í•œì", "springno1");
+		User user2 = new User("leegw700", "ì´ì¹˜í•œ", "springno2");
+		User user3 = new User("bumjin", "ì–‘ì‚¬ë‘", "springno3");
 				
 		dao.deleteAll();
 		assertThat(dao.getCount(), is(0));

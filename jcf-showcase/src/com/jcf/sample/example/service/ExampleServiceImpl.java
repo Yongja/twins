@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import com.jcf.sample.example.model.AttachFiles;
 import com.jcf.sample.example.model.Example;
 import com.jcf.system.dao.CommonDao;
+import com.jcf.system.util.Root;
+import com.jcf.system.util.Runner;
+import com.jcf.system.util.XmlReaderExample;
 
 @Service
 public class ExampleServiceImpl implements ExampleService {
@@ -69,4 +72,19 @@ public class ExampleServiceImpl implements ExampleService {
 		return new FileInfo(file.getFold(), file.getCallName());
 	}
 
+	@Override
+	public List<Example> getEmpList() {
+		// TODO Auto-generated method stub
+		return commonDao.queryForList("example.selectEmpList", null, Example.class);
+	}
+
+	@Override
+	public List<Example> getWebService() {
+//		XmlReaderExample xre = new XmlReaderExample();
+		Runner xre = new Runner();
+		
+		return xre.getWebService();
+		// TODO Auto-generated method stub
+	//	return commonDao.queryForList("example.selectEmpList", null, Example.class);
+	}
 }

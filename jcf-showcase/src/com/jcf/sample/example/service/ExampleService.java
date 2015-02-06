@@ -6,6 +6,7 @@ import jcf.upload.FileInfo;
 
 import com.jcf.sample.example.model.AttachFiles;
 import com.jcf.sample.example.model.Example;
+import com.jcf.system.util.Root;
 
 public interface ExampleService {
 
@@ -17,4 +18,7 @@ public interface ExampleService {
 
 	FileInfo getFileInfo(String fileName);
 
+	List<Example> getEmpList();
+	
+	List<Example> getWebService();
 }

@@ -68,7 +68,7 @@ public class User {
 	public void upgradeLevel() {
 		Level nextLevel = this.level.nextLevel();	
 		if (nextLevel == null) { 								
-			throw new IllegalStateException(this.level + "Àº  ¾÷±×·¹ÀÌµå°¡ ºÒ°¡´ÉÇÕ´Ï´Ù");
+			throw new IllegalStateException(this.level + "ì—…ê·¸ë ˆì´ë“œ ë¶ˆê°€");
 		}
 		else {
 			this.level = nextLevel;

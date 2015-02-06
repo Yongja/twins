@@ -7,18 +7,20 @@ public class User {
 	Level level;
 	int login;
 	int recommend;
+	String email;
 	
 	public User() {
 	}
 	
 	public User(String id, String name, String password, Level level,
-			int login, int recommend) {
+			int login, int recommend, String email) {
 		this.id = id;
 		this.name = name;
 		this.password = password;
 		this.level = level;
 		this.login = login;
 		this.recommend = recommend;
+		this.email = email;
 	}
 
 
@@ -63,5 +65,30 @@ public class User {
 
 	public void setRecommend(int recommend) {
 		this.recommend = recommend;
+	}
+	
+	public void upgradeLevel(){
+		Level nextLevel = this.level.nextLevel();
+		
+		if(nextLevel==null){
+			throw new IllegalStateException(this.level+"업그레이드 불가!!!");
+		}
+		else{
+			this.level = nextLevel;
+		}
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

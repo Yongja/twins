@@ -12,5 +12,9 @@
 	<classpathentry kind="lib" path="/spring30-lib/lib/org.springframework.core-3.0.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/spring30-lib/lib/org.springframework.expression-3.0.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/spring30-lib/lib/org.springframework.jdbc-3.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/spring30-lib/lib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="/spring30-lib/lib/org.springframework.test-3.0.7.RELEASE.jar" sourcepath="C:/sts292/spring-framework-3.0.7.RELEASE/src/org.springframework.test-sources-3.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/spring30-lib/lib/org.springframework.transaction-3.0.7.RELEASE.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

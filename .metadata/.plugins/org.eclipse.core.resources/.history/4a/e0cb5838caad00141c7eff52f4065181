@@ -1,0 +1,32 @@
+package springbook.user.service;
+
+import org.springframework.transaction.PlatformTransactionManager;
+
+import springbook.user.domain.User;
+
+public class UserServiceTX implements UserService {
+	UserService userService;
+	
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
+	/*private PlatformTransactionManager transactionManager;	
+	
+	public void setTransactionManager(PlatformTransactionManager transactionManager) {
+		this.transactionManager = transactionManager;
+	}*/
+	
+	@Override
+	public void add(User user) {
+		// TODO Auto-generated method stub
+			userService.add(user);
+	}
+
+	@Override
+	public void upgradeLevels() {
+		// TODO Auto-generated method stub
+		userService.upgradeLevels();
+	}
+
+}
