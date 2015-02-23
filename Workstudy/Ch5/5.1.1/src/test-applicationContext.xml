@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/jdbc
+						http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
 						
 <!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
@@ -11,13 +14,18 @@
 		<property name="password" value="book" />
 	</bean> -->
 
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+	<jdbc:embedded-database id="dataSource" type="HSQL">
+		<jdbc:script location="classpath:db-script/hsql-sample-db-script.sql"/>
+	</jdbc:embedded-database>
+	
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
 		<property name="driverClass" value="oracle.jdbc.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:irosdb" />
 		<property name="username" value="SPRING" />
 		<property name="password" value="SPRING" />
-	</bean>
-
+	</bean> -->
+	
+	<!--데코레이터 패턴  -->
 	<bean id = "userService" class="springbook.user.service.UserServiceTX">
 		<!-- <property name="userDao" ref="userDao"/> -->
 		<!-- <property name="dataSource" ref="dataSource"/>		 -->
@@ -50,8 +58,6 @@
 		<property name="mailSender" ref ="mailSender"/>
 	</bean>
 	
-<!-- 	<bean id ="userServiceTx" class="springbook.user.service.UserServiceTX">
-		<pro
-	</bean> -->
+ 
 	
 </beans>

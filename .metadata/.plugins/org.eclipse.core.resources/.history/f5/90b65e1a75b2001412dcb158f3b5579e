@@ -1,0 +1,31 @@
+package springbook.learningtest.jdk;
+
+public class HelloUppercase implements Hello {
+	Hello hello;
+	
+	/**
+	 * @param hello
+	 */
+	public HelloUppercase(Hello hello) {
+		this.hello = hello;
+	}
+
+	@Override
+	public String sayHello(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String sayHi(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String sayThankYou(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

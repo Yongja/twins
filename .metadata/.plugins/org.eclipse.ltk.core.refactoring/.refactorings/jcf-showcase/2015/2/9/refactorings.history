@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;hsql-sample-db-script.sql&apos; to &apos;db-script&apos;&#x0D;&#x0A;- Original project: &apos;jcf-showcase&apos;&#x0D;&#x0A;- Destination element: &apos;db-script&apos;&#x0D;&#x0A;- Original element: &apos;hsql-sample-db-script.sql&apos;" description="Copy file" element1="src/META-INF/db-script/hsql-sample-db-script.sql" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1424667793381" target="/spring30-5.1.1/src/db-script" units="0" version="1.0"/>
+</session>

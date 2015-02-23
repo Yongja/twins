@@ -14,7 +14,7 @@
 	</section>
 	<section name="WorkbenchPreferenceDialogSettings">
 		<item value="8" key="DIALOG_Y_ORIGIN"/>
-		<item value="234" key="DIALOG_X_ORIGIN"/>
+		<item value="775" key="DIALOG_X_ORIGIN"/>
 	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.jdt.junit.wizards.NewTestCaseCreationWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>

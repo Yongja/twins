@@ -3,4 +3,6 @@
 <typeInfo handle="=spring30-2.5/src&lt;springbook.user.dao{UserDao.java[UserDao" modifiers="1" timestamp="1421213194178"/>
 <typeInfo handle="=spring30-2.5/C:\/JCF\/JCF-IDE\/tools\/jdk\/jdk1.6.0_45\/jre\/lib\/rt.jar&lt;java.sql(Statement.class[Statement" modifiers="1537" timestamp="1372059328000"/>
 <typeInfo handle="=spring30-2.5/D:\/study\/git_hub\/jcf\/twins\/Workstudy\/Lib\/lib\/mysql-connector-java-5.1.7-bin.jar&lt;com.mysql.jdbc(Statement.class[Statement" modifiers="1537" timestamp="1421213195754"/>
+<typeInfo handle="=spring30-5.1.1/src&lt;springbook.user.service{UserService.java[UserService" modifiers="513" timestamp="1423204225740"/>
+<typeInfo handle="=spring30-5.1.1/src&lt;springbook.user.dao{UserDao.java[UserDao" modifiers="513" timestamp="1423032877477"/>
 </typeInfoHistroy>

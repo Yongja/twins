@@ -1,0 +1,15 @@
+DROP TABLE USERS IF EXISTS;
+
+CREATE TABLE USERS
+(
+  ID        VARCHAR(10) NOT NULL,
+  NAME      VARCHAR(20) NOT NULL,
+  PASSWORD  VARCHAR(10) NOT NULL,
+  RECOMMEND VARCHAR(10),
+  LEVEL1    VARCHAR(10),
+  LOGIN     VARCHAR(20),
+  EMAIL     VARCHAR(30)
+);
+
+INSERT INTO USERS VALUES ('gyumee', '강한자', 'springno1', '1', '1', '0','admin@admin.co.kr');
+ 	

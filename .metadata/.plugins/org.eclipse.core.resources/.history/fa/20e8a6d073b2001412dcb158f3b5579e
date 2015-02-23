@@ -1,0 +1,53 @@
+package springbook.learningtest.jdk;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+import org.junit.Test;
+
+public class ReflectionTest {
+
+	/*@Test
+	public void test() {
+		fail("Not yet implemented");
+	}*/
+	
+	@Test
+	public void invokeMethod() throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException{
+		String name = "String";
+		
+		assertThat(name.length(), is(6));
+	
+		Method a =  String.class.getMethod("length");
+		assertThat((Integer) a.invoke(name),is(6));
+		
+		
+		assertThat(name.charAt(0), is('S'));
+		
+		Method b = String.class.getMethod("charAt",int.class);
+		
+		assertThat((Character) b.invoke(name,0), is('S'));
+		
+		assertThat(name.concat("ing"),is("Stringing"));
+		
+	/*	Method c = String.class.getMethod("concat");
+		
+		assertThat((String) c.invoke(name), is("Stringing"));*/
+		
+	}
+
+	@Test
+	public void HellTargetTest(){
+		
+		Hello helloTarget = new HelloTarget();
+		
+		assertThat(helloTarget.sayHello("Yonghui"),is("Hello! Yonghui"));
+		assertThat(helloTarget.sayHi("Yonghui"),is("Hi! Yonghui"));
+		assertThat(helloTarget.sayThankYou("Yonghui"),is("Thank you! Yonghui"));
+		
+		
+	}
+}

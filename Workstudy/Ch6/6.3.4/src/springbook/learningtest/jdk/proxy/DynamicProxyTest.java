@@ -14,6 +14,8 @@ public class DynamicProxyTest {
 	@Test
 	public void simpleProxy() {
 		Hello hello = new HelloTarget();
+		//Hello helloTwo = new HelloTwoTarget();
+		
 		assertThat(hello.sayHello("Toby"), is("Hello Toby"));
 		assertThat(hello.sayHi("Toby"), is("Hi Toby"));
 		assertThat(hello.sayThankYou("Toby"), is("Thank You Toby"));
@@ -73,6 +75,28 @@ public class DynamicProxyTest {
 		String sayHello(String name);
 		String sayHi(String name);
 		String sayThankYou(String name);
+	}
+	
+	class HelloTwoTarget implements Hello{
+
+		@Override
+		public String sayHello(String name) {
+			// TODO Auto-generated method stub
+			return "Hello Two" + name;
+		}
+
+		@Override
+		public String sayHi(String name) {
+			// TODO Auto-generated method stub
+			return "Hi two" + name;
+		}
+
+		@Override
+		public String sayThankYou(String name) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
 	}
 	
 	static class HelloTarget implements Hello {
