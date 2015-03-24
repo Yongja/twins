@@ -75,8 +75,8 @@ public class ReflectionTest {
 		assertThat(upppercaseHannderTest.sayHello("Yonghui"), is("HELLO! YONGHUI"));
 	}
 	
-	
-	static class UppercaseHandler implements InvocationHandler{
+	// invocate Handler
+	public class UppercaseHandler implements InvocationHandler{
 		//Hello target;
 		Object target;
 		/**

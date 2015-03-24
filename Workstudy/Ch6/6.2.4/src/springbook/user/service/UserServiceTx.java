@@ -22,7 +22,8 @@ public class UserServiceTx implements UserService {
 	public void add(User user) {
 		this.userService.add(user);
 	}
-
+	
+	// 각 메서드에 트랙젝션 경계 설정
 	public void upgradeLevels() {
 		TransactionStatus status = this.transactionManager
 				.getTransaction(new DefaultTransactionDefinition());

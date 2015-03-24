@@ -48,11 +48,11 @@ public class UserServiceTest {
 	@Before
 	public void setUp() {
 		users = Arrays.asList(
-				new User("bumjin", "π⁄π¸¡¯", "p1", "user1@ksug.org", Level.BASIC, MIN_LOGCOUNT_FOR_SILVER-1, 0),
-				new User("joytouch", "∞≠∏Ìº∫", "p2", "user2@ksug.org", Level.BASIC, MIN_LOGCOUNT_FOR_SILVER, 0),
-				new User("erwins", "Ω≈Ω¬«—", "p3", "user3@ksug.org", Level.SILVER, 60, MIN_RECCOMEND_FOR_GOLD-1),
-				new User("madnite1", "¿ÃªÛ»£", "p4", "user4@ksug.org", Level.SILVER, 60, MIN_RECCOMEND_FOR_GOLD),
-				new User("green", "ø¿πŒ±‘", "p5", "user5@ksug.org", Level.GOLD, 100, Integer.MAX_VALUE)
+				new User("bumjin", "ÎªêÍµ≠Ïù¥", "p1", "user1@ksug.org", Level.BASIC, MIN_LOGCOUNT_FOR_SILVER-1, 0),
+				new User("joytouch", "Ï¢ÖÎã¨ÏÉà", "p2", "user2@ksug.org", Level.BASIC, MIN_LOGCOUNT_FOR_SILVER, 0),
+				new User("erwins", "Ï∞∏ÏÉà", "p3", "user3@ksug.org", Level.SILVER, 60, MIN_RECCOMEND_FOR_GOLD-1),
+				new User("madnite1", "ÎëêÎ£®ÎØ∏", "p4", "user4@ksug.org", Level.SILVER, 60, MIN_RECCOMEND_FOR_GOLD),
+				new User("green", "ÎèÖÏàòÎ¶¨", "p5", "user5@ksug.org", Level.GOLD, 100, Integer.MAX_VALUE)
 				);
 	}
 
@@ -166,7 +166,7 @@ public class UserServiceTest {
 	public void add() {
 		userDao.deleteAll();
 		
-		User userWithLevel = users.get(4);	  // GOLD ∑π∫ß  
+		User userWithLevel = users.get(4);	  // GOLD ÔøΩÔøΩÔøΩÔøΩ  
 		User userWithoutLevel = users.get(0);  
 		userWithoutLevel.setLevel(null);
 		

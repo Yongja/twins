@@ -11,5 +11,5 @@ CREATE TABLE USERS
   EMAIL     VARCHAR(30)
 );
 
-INSERT INTO USERS VALUES ('gyumee', '강한자', 'springno1', '1', '1', '0','admin@admin.co.kr');
+
  	

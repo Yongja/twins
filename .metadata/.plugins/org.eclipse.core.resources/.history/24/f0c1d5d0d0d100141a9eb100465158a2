@@ -1,0 +1,293 @@
+package springbook.user.service;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
+
+import static org.mockito.Mockito.*;
+
+import static springbook.user.service.UserServiceImpl.MIN_LOGCOUNT_FOR_SILVER;
+import static springbook.user.service.UserServiceImpl.MIN_RECOMMENT_FOR_GOLD;
+
+import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.PlatformTransactionManager;
+
+import springbook.user.dao.UserDao;
+import springbook.user.domain.Level;
+import springbook.user.domain.User;
+import springbook.user.service.TestUserService.TestUserServiceException;
+
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations="/test-applicationContext.xml")
+public class UserServiceTest {
+	@Autowired
+	UserService userService;
+	@Autowired
+	UserDao userDao;
+	/*@Autowired
+	DataSource dataSource;*/
+	@Autowired
+	PlatformTransactionManager transactionManager;
+	
+	@Autowired
+	MailSender mailSender;
+	
+	@Autowired
+	UserServiceImpl userServiceImpl;
+	
+	List<User> users;
+	
+	@Before
+	public void setUp() throws Exception {
+		
+		users = Arrays.asList(
+//				new User("bumjin", "박범진", "p1",Level.BASIC, 49, 0),
+//				new User("joytouch", "강명성", "p2", Level.BASIC, 50 , 0),
+//				new User( "erwins", "신승한","p3", Level.SILVER, 60, 29),
+//				new User("madnitel", "이상호", "p4", Level.SILVER, 60, 30),
+//				new User( "green", "오민규","p5", Level.GOLD, 100, 100));
+		new User("bumjin", "박범진", "p1",Level.BASIC, MIN_LOGCOUNT_FOR_SILVER-1, 0,"twinspark81@gmail.com"),
+		new User("joytouch", "강명성", "p2", Level.BASIC, MIN_LOGCOUNT_FOR_SILVER , 0,"twinspark82@gmail.com"),
+		new User( "erwins", "신승한","p3", Level.SILVER, 60, MIN_RECOMMENT_FOR_GOLD-1,"twinspark83@gmail.com"),
+		new User("madnitel", "이상호", "p4", Level.SILVER, 60, MIN_RECOMMENT_FOR_GOLD,"twinspark84@gmail.com"),
+		new User( "green", "오민규","p5", Level.GOLD, 100, Integer.MAX_VALUE,"twinspark85@gmail.com"));
+	}
+
+	@Test
+//	@DirtiesContext
+	public void upgradeLevels() throws Exception {
+		UserServiceImpl userServiceImpl = new UserServiceImpl();
+		MockUserDao mockUserDao = new MockUserDao(this.users);
+		userServiceImpl.setUserDao(mockUserDao);
+		
+	//	userDao.deleteAll();
+		
+	//	for (User user:users) userDao.add(user);
+		
+		MockMailSender mockMailSender =  new MockMailSender();
+		userServiceImpl.setMailSender(mockMailSender);
+		
+	//	userService.upgradeLevels();    //구
+		userServiceImpl.upgradeLevels();  //신 메서드
+		List<User> updated = mockUserDao.getUpdated();
+		
+		assertThat(updated.size(), is(2));
+		checkUserAndLevel(updated.get(0), "joytouch", Level.SILVER);
+		checkUserAndLevel(updated.get(1), "madnitel", Level.GOLD);
+		
+//		checkLevel(users.get(0), Level.BASIC);
+//		checkLevel(users.get(1), Level.SILVER);
+//		checkLevel(users.get(2), Level.SILVER);
+//		checkLevel(users.get(3), Level.GOLD);
+//		checkLevel(users.get(4), Level.GOLD);
+		
+//		checkLevelUpgraded(users.get(0), false);
+//		checkLevelUpgraded(users.get(1), true);
+//		checkLevelUpgraded(users.get(2), false);
+//		checkLevelUpgraded(users.get(3), true);
+//		checkLevelUpgraded(users.get(4), false);
+		
+		//assertThat(this.userService, is(notNullValue()));
+		List<String> request = mockMailSender.getRequests();
+		assertThat(request.size(), is(2));
+		assertThat(request.get(0), is(users.get(1).getEmail()));
+		assertThat(request.get(1), is(users.get(3).getEmail()));
+	}
+	
+	@Test
+	public void mockUpgradeLevels(){
+		UserServiceImpl userServiceImpl =  new UserServiceImpl();
+		
+		UserDao mockUserDao = mock(UserDao.class);
+		when(mockUserDao.getAll()).thenReturn(users);
+		userServiceImpl.setUserDao(mockUserDao);
+		
+		MailSender mockMailSender = mock(MailSender.class);
+		userServiceImpl.setMailSender(mockMailSender);		
+		
+		userServiceImpl.upgradeLevels();
+	}
+
+	private void checkUserAndLevel(User updated , String expectedld , Level expectedLevel) {
+			assertThat(updated.getId() , is(expectedld));
+			assertThat(updated.getLevel() , is(expectedLevel));
+	}
+			
+	public void checkLevel(User user, Level expectedLevel){
+		User userUpdate = userDao.get(user.getId());
+		assertThat(userUpdate.getLevel(), is(expectedLevel));
+		
+	}
+	
+	public void checkLevelUpgraded(User user, boolean upgraded){
+		User userUpgrade = userDao.get(user.getId());
+		if(upgraded){
+			assertThat(userUpgrade.getLevel(), is(user.getLevel().nextLevel()));
+			
+		}else{
+			assertThat(userUpgrade.getLevel(), is(user.getLevel()));
+		}
+		
+	}
+	@Test
+	public void add(){
+		
+		userDao.deleteAll();
+		
+		User userWithLevel =  users.get(4);
+		User userWithoutLevel = users.get(2);
+		userWithoutLevel.setLevel(null);
+		
+		userService.add(userWithLevel);
+		userService.add(userWithoutLevel);
+		
+		User user1 = userDao.get(userWithLevel.getId());
+		User user2 = userDao.get(userWithoutLevel.getId());
+		
+		assertThat(user1.getLevel(), is(userWithLevel.getLevel()));
+		
+		assertThat(user2.getLevel(),is(userWithoutLevel.getLevel()));
+		
+	}
+	
+	@Test
+	public void upgradeAllOrNothing(){
+		
+//		UserServiceImpl testUserService = new TestUserService(users.get(3).getId());
+		UserServiceImpl testUserService = new TestUserService("ss");
+		testUserService.setUserDao(this.userDao);
+		testUserService.setMailSender(mailSender);
+		
+		//testUserService.setTransactionManager(transactionManager);
+		/*** 인터페이스 구현한 클래스를 사용하여 유연한 구조를 이룸***/
+		/*UserServiceTX txUserService = new UserServiceTX();
+		txUserService.setTransactionManager(transactionManager);
+		txUserService.setUserService(txUserService);*/
+		
+		///////////////////////////////////////////////////////
+		//트랜젝션 핸들러가 필요한 정보와 오브텍트DI해준다.
+		TransactionHandler txHandler = new TransactionHandler();
+		txHandler.setTarget(testUserService); // <== target		
+		txHandler.setTransactionManager(transactionManager);
+		txHandler.setPattern("upgradeLevels");		
+		
+		//UserService txUserService =  (UserService) Proxy.newProxyInstance(loader, interfaces, h);
+		//UserService 인터페이스 타입의 다이내믹 프록시 생성
+		UserService txUserService = (UserService) Proxy.newProxyInstance(
+				getClass().getClassLoader(), new Class[]{ UserService.class }, txHandler);
+		///////////////////////////////////////////////////////
+				
+		userDao.deleteAll();
+		
+		for (User user : users) userDao.add(user);
+		try{
+			//testUserService.upgradeLevels();
+			txUserService.upgradeLevels();
+		//	fail("TestUserServiceException expected");
+		}catch(TestUserServiceException e){
+			throw e;
+		}
+		
+		//checkLevelUpgraded(users.get(1), false);
+		testUserService.setMailSender(mailSender);
+	}
+	
+	static class MockMailSender implements MailSender{
+		
+		private List<String> requests = new ArrayList<String>();
+		
+		/**
+		 * @return the requests
+		 */
+		public List<String> getRequests() {
+			return requests;
+		}
+
+		@Override
+		public void send(SimpleMailMessage arg0) throws MailException {
+			// TODO Auto-generated method stub
+			requests.add(arg0.getTo()[0]);
+		}
+
+		@Override
+		public void send(SimpleMailMessage[] arg0) throws MailException {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
+	static class MockUserDao implements UserDao{
+		
+		private List<User> users;
+		private List<User> updated = new ArrayList();
+		
+		/**
+		 * @return the updated
+		 */
+		public List<User> getUpdated() {
+			return updated;
+		}
+
+
+		public MockUserDao(List<User> users){
+			this.users = users;
+		}
+		
+		@Override
+		public List<User> getAll() {
+			// TODO Auto-generated method stub
+			return this.users;
+		}
+
+		@Override
+		public void update(User user) {
+			// TODO Auto-generated method stub
+			updated.add(user);
+		}
+		
+		@Override
+		public void add(User user) { 
+			// TODO Auto-generated method stub
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public User get(String id) {
+			// TODO Auto-generated method stub
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public void deleteAll() {
+			// TODO Auto-generated method stub
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			throw new UnsupportedOperationException();
+		}
+
+	}
+	
+
+
+}
